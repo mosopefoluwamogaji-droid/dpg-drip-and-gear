@@ -1,0 +1,11 @@
+{
+  "name": "dpg-drip-and-gear-store",
+  "version": "1.0.0",
+  "private": true,
+  "description": "DPG Drip and Gear storefront + admin price editor",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "engines": { "node": ">=18" }
+}

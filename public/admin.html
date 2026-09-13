@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Work+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<title>DPG Drip and Gear — Admin</title>
+<link rel="icon" href="assets/favicons/favicon.ico" sizes="any">
+<link rel="icon" href="assets/favicons/favicon-32.png" type="image/png" sizes="32x32">
+<link rel="icon" href="assets/favicons/favicon-16.png" type="image/png" sizes="16x16">
+<link rel="apple-touch-icon" href="assets/favicons/apple-touch-icon.png">
+<link rel="manifest" href="site.webmanifest">
+<meta name="theme-color" content="#14141a">
+<link rel="stylesheet" href="styles.css">
+<style>
+  .admin-wrap { max-width: 900px; margin: 0 auto; padding: 60px 20px 100px; }
+  .login-box {
+    max-width: 380px; margin: 100px auto; background: var(--surface);
+    border: 1px solid var(--line); padding: 36px;
+    box-shadow: var(--lift-3);
+  }
+  .login-box h2 { margin-bottom: 6px; }
+  .login-box p { color: var(--ink-soft); font-size: 0.9rem; margin: 0 0 20px; }
+  .login-box input {
+    width: 100%; padding: 12px; border: 1px solid var(--ink); margin-bottom: 14px; font-size: 1rem;
+    box-shadow: inset 0 1px 3px rgba(0,0,0,.08);
+  }
+  .login-box button {
+    width: 100%; padding: 13px; background: var(--ink); color: #fff; border: none; cursor: pointer; font-weight: 600;
+    box-shadow: var(--lift-inset), 0 3px 0 rgba(0,0,0,.25), var(--lift-2);
+    transition: transform .1s ease, box-shadow .1s ease;
+  }
+  .login-box button:active { transform: translateY(2px); box-shadow: var(--lift-inset); }
+  .login-error { color: var(--danger); font-size: 0.85rem; margin-bottom: 10px; display: none; }
+
+  .admin-top { display: flex; justify-content: space-between; align-items: center; margin-bottom: 24px; }
+  .admin-top a { font-size: 0.85rem; text-decoration: underline; cursor: pointer; }
+
+  .table-card { background: var(--surface); box-shadow: var(--lift-2); border: 1px solid var(--line); overflow-x: auto; }
+  table { width: 100%; min-width: 620px; border-collapse: collapse; }
+  th, td { text-align: left; padding: 11px 12px; border-bottom: 1px solid var(--line); font-size: 0.9rem; }
+  th { background: var(--ink); color: #fff; font-weight: 600; }
+  tr:hover td { background: #faf8f2; }
+  td img { width: 46px; height: 56px; object-fit: cover; box-shadow: var(--lift-1); }
+  td input[type="number"] {
+    width: 110px; padding: 7px; border: 1px solid var(--line); font-size: 0.9rem;
+    box-shadow: inset 0 1px 3px rgba(0,0,0,.06);
+  }
+  td select.stock-select {
+    padding: 7px; border: 1px solid var(--line); font-size: 0.85rem;
+    box-shadow: inset 0 1px 3px rgba(0,0,0,.06);
+  }
+  td select.stock-select.is-sold-out { color: var(--danger); font-weight: 600; }
+  .row-changed td { background: #fbf3e2; }
+  .save-bar {
+    position: sticky; bottom: 0; background: var(--ink); color: #fff;
+    padding: 14px 20px; display: flex; justify-content: space-between; align-items: center;
+    box-shadow: 0 -8px 20px rgba(0,0,0,.25);
+  }
+  .save-bar button {
+    background: var(--brass); color: var(--ink); border: none; padding: 10px 20px;
+    font-weight: 700; cursor: pointer;
+  }
+  .save-bar .status { font-size: 0.85rem; color: var(--paper-dim); }
+  .filter-row { margin-bottom: 16px; }
+  .filter-row select { padding: 8px; border: 1px solid var(--ink); font-size: 0.9rem; }
+  .live-note { font-size: 0.8rem; color: var(--ink-soft); margin-bottom: 18px; }
+
+  .review-card {
+    background: var(--surface); border: 1px solid var(--line); box-shadow: var(--lift-1);
+    padding: 16px 18px; margin-bottom: 12px;
+  }
+  .review-card.pending { border-left: 4px solid var(--brass); }
+  .review-card.approved { border-left: 4px solid var(--sale, #1f7a4d); opacity: 0.85; }
+  .review-card-top { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 6px; flex-wrap: wrap; gap: 6px; }
+  .review-card-product { font-size: 0.78rem; color: var(--brass-deep); text-transform: uppercase; letter-spacing: .03em; }
+  .review-card-name { font-weight: 700; }
+  .review-card-stars { color: var(--brass); letter-spacing: 1px; }
+  .review-card-comment { font-size: 0.9rem; color: var(--ink-soft); margin: 8px 0 12px; line-height: 1.5; }
+  .review-card-actions { display: flex; gap: 8px; }
+  .review-card-actions button {
+    border: none; padding: 8px 14px; font-size: 0.8rem; font-weight: 700; cursor: pointer;
+  }
+  .btn-approve { background: #1f7a4d; color: #fff; }
+  .btn-reject { background: var(--danger); color: #fff; }
+  .status-tag { font-size: 0.7rem; text-transform: uppercase; font-weight: 700; padding: 3px 8px; }
+  .status-tag.pending { background: #fbf3e2; color: var(--brass-deep); }
+  .status-tag.approved { background: #e4f3ea; color: #1f7a4d; }
+
+  .add-product-toggle { margin-bottom: 18px; }
+  .add-product-toggle summary {
+    cursor: pointer; font-weight: 700; font-size: 0.95rem; color: var(--brass-deep);
+    list-style: none; padding: 10px 0;
+  }
+  .add-product-toggle summary::-webkit-details-marker { display: none; }
+  .add-product-form {
+    background: var(--surface); border: 1px solid var(--line); box-shadow: var(--lift-1);
+    padding: 20px; display: flex; flex-direction: column; gap: 12px; margin-top: 8px;
+  }
+  .add-product-form .form-row { display: flex; gap: 16px; flex-wrap: wrap; }
+  .add-product-form label {
+    display: flex; flex-direction: column; gap: 5px; font-size: 0.82rem; font-weight: 600;
+    flex: 1; min-width: 180px;
+  }
+  .add-product-form input, .add-product-form select, .add-product-form textarea {
+    border: 1px solid var(--line); padding: 9px 11px; font-size: 0.9rem; font-weight: 400;
+    box-shadow: inset 0 1px 3px rgba(0,0,0,.06); font-family: inherit;
+  }
+  .add-product-form textarea { min-height: 60px; resize: vertical; }
+  .new-image-preview { width: 100px; height: 120px; object-fit: cover; box-shadow: var(--lift-1); }
+  .btn-remove-product { background: var(--danger); color: #fff; border: none; padding: 6px 10px; font-size: 0.75rem; cursor: pointer; }
+</style>
+</head>
+<body>
+
+<div id="login-screen" class="login-box">
+  <h2>Admin sign in</h2>
+  <p>Enter the store password to edit prices.</p>
+  <div class="login-error" id="login-error">Wrong password. Try again.</div>
+  <input type="password" id="password-input" placeholder="Password">
+  <button id="login-btn">Sign in</button>
+</div>
+
+<div id="admin-panel" class="admin-wrap" style="display:none;">
+  <div class="admin-top">
+    <h2>Edit prices</h2>
+    <div>
+      <a href="index.html">View store</a> &nbsp;|&nbsp;
+      <a id="logout-link">Log out</a>
+    </div>
+  </div>
+
+  <details class="add-product-toggle">
+    <summary>+ Add a new product</summary>
+    <form id="add-product-form" class="add-product-form">
+      <div class="form-row">
+        <label>Product name<input type="text" id="new-name" maxlength="80" required></label>
+        <label>Category
+          <select id="new-category" required></select>
+        </label>
+      </div>
+      <div class="form-row">
+        <label>Price (₦)<input type="number" id="new-price" min="0" step="500" required></label>
+        <label>Sizes (comma-separated, optional)<input type="text" id="new-sizes" placeholder="e.g. S, M, L, XL"></label>
+      </div>
+      <label>Description<textarea id="new-desc" maxlength="300" placeholder="Short description shown to customers"></textarea></label>
+      <label>Photo<input type="file" id="new-image" accept="image/jpeg,image/png,image/webp" required></label>
+      <img id="new-image-preview" class="new-image-preview" style="display:none;">
+      <button type="submit" class="btn btn-primary btn-small">Add product</button>
+      <p class="review-status" id="add-product-status"></p>
+    </form>
+  </details>
+
+  <p class="live-note">Changes saved here go live on the store immediately for every visitor.</p>
+
+  <div class="filter-row">
+    <select id="cat-filter"></select>
+  </div>
+
+  <div class="table-card">
+  <table>
+    <thead>
+      <tr><th></th><th>Product</th><th>Category</th><th>Price (₦)</th><th>Stock</th><th></th></tr>
+    </thead>
+    <tbody id="price-table-body"></tbody>
+  </table>
+  </div>
+
+  <div class="save-bar">
+    <span class="status" id="save-status">No unsaved changes</span>
+    <div>
+      <button id="reset-all-btn" style="background:#444;color:#fff;margin-right:10px;">Reset all to default</button>
+      <button id="save-btn">Save changes</button>
+    </div>
+  </div>
+
+  <div class="admin-top" style="margin-top:48px;">
+    <h2>Review moderation</h2>
+    <span class="count" id="review-queue-count"></span>
+  </div>
+  <p class="live-note">New reviews are hidden from the store until you approve them here.</p>
+  <div id="reviews-admin-list"></div>
+</div>
+
+<script src="admin.js"></script>
+</body>
+</html>

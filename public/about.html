@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Work+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<title>About — DPG Drip and Gear</title>
+<link rel="icon" href="assets/favicons/favicon.ico" sizes="any">
+<link rel="icon" href="assets/favicons/favicon-32.png" type="image/png" sizes="32x32">
+<link rel="icon" href="assets/favicons/favicon-16.png" type="image/png" sizes="16x16">
+<link rel="apple-touch-icon" href="assets/favicons/apple-touch-icon.png">
+<link rel="manifest" href="site.webmanifest">
+<meta name="theme-color" content="#14141a">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<div id="site-header"></div>
+
+<section class="page-banner">
+  <div class="wrap">
+    <nav class="breadcrumbs"><a href="index.html">Home</a><span class="crumb-sep">/</span><span>About</span></nav>
+    <h1>About DPG Drip and Gear</h1>
+    <p>Fashion, footwear, watches and accessories — picked with care, delivered nationwide.</p>
+  </div>
+</section>
+
+<main class="wrap about-content">
+  <div class="about-grid">
+    <div class="about-img">
+      <img src="assets/images/polo-08.jpg" alt="DPG Drip and Gear product">
+    </div>
+    <div>
+      <span class="eyebrow">Our story</span>
+      <h2>Built for people who care how they show up</h2>
+      <p>DPG Drip and Gear started with a simple idea: good style shouldn't be hard to find, and buying it shouldn't feel like a gamble. Every piece in our catalog — polos, shirts, pullovers, watches, sneakers and more — is picked and checked before it ever reaches you.</p>
+      <p>We're not a faceless checkout. Every order goes through a real conversation, by WhatsApp or by phone, with someone who can answer your questions before you commit.</p>
+
+      <h3>What you can expect</h3>
+      <ul class="about-list">
+        <li>Every item checked for sizing and condition before it ships</li>
+        <li>Straightforward pricing — offers are genuine markdowns, not inflated "was" prices</li>
+        <li>Delivery anywhere in Nigeria</li>
+        <li>7-day returns accepted on unsealed items</li>
+        <li>Real replies from a real person, not an automated queue</li>
+      </ul>
+
+      <a class="btn btn-primary" href="products.html">Browse the catalog</a>
+    </div>
+  </div>
+</main>
+
+<div id="site-footer"></div>
+
+<script src="icons.js"></script>
+<script src="common.js"></script>
+<script src="cart.js"></script>
+<script src="animations.js"></script>
+<script>
+  document.addEventListener("DOMContentLoaded", async () => {
+    await initPage("about");
+    if (typeof observeReveal === "function") observeReveal(".reveal");
+  });
+</script>
+</body>
+</html>

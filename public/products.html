@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Work+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<title>Products — DPG Drip and Gear</title>
+<link rel="icon" href="assets/favicons/favicon.ico" sizes="any">
+<link rel="icon" href="assets/favicons/favicon-32.png" type="image/png" sizes="32x32">
+<link rel="icon" href="assets/favicons/favicon-16.png" type="image/png" sizes="16x16">
+<link rel="apple-touch-icon" href="assets/favicons/apple-touch-icon.png">
+<link rel="manifest" href="site.webmanifest">
+<meta name="theme-color" content="#14141a">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<div id="site-header"></div>
+
+<section class="page-banner">
+  <div class="wrap">
+    <nav class="breadcrumbs" id="page-breadcrumbs"></nav>
+    <h1>All Products</h1>
+    <p>Browse the full catalog — filter by category or search by name.</p>
+  </div>
+</section>
+
+<main class="wrap" id="catalog">
+  <div class="products-toolbar">
+    <input type="search" id="search-input" placeholder="Search products…">
+    <nav class="cat-filters" id="cat-filters"></nav>
+  </div>
+
+  <div class="section-head">
+    <span class="count" id="result-count"></span>
+  </div>
+  <div class="grid" id="grid"><p>Loading catalog…</p></div>
+</main>
+
+<div id="site-footer"></div>
+
+<script src="icons.js"></script>
+<script src="common.js"></script>
+<script src="cart.js"></script>
+<script src="animations.js"></script>
+<script src="catalog-ui.js"></script>
+<script src="products.js"></script>
+</body>
+</html>

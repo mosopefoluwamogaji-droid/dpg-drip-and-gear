@@ -1,0 +1,13 @@
+{
+  "storeName": "DPG Drip and Gear",
+  "whatsappNumber": "2348186538587",
+  "phoneNumber": "+234 913 175 9337",
+  "email": "abrahamhenry755@gmail.com",
+  "currency": "\u20a6",
+  "returnPolicy": "7-day return accepted on unsealed items.",
+  "deliveryNote": "Delivery available nationwide across Nigeria.",
+  "port": 3000,
+
+  "_comment_adminPassword": "Used ONLY the first time the server ever starts, to create the admin account. After that, data/admin.json holds the real (hashed) password and this field is ignored. To reset the admin password later, delete data/admin.json and set a new value here, then restart the server.",
+  "adminPassword": "dpg-admin-2026"
+}

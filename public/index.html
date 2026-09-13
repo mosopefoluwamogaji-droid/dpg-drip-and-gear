@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Work+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<title>DPG Drip and Gear — Modern Shopping, Premium Feel</title>
+<link rel="icon" href="assets/favicons/favicon.ico" sizes="any">
+<link rel="icon" href="assets/favicons/favicon-32.png" type="image/png" sizes="32x32">
+<link rel="icon" href="assets/favicons/favicon-16.png" type="image/png" sizes="16x16">
+<link rel="apple-touch-icon" href="assets/favicons/apple-touch-icon.png">
+<link rel="manifest" href="site.webmanifest">
+<meta name="theme-color" content="#14141a">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<div id="site-header"></div>
+
+<section class="hero">
+  <div class="hero-inner">
+    <div>
+      <img class="hero-logo" src="assets/brand/logo-full-hero.jpg" alt="DPG Drip and Gear">
+      <span class="hero-badge">New this week</span>
+      <h1>Gear up.<br>Wear the <em>drip</em>.</h1>
+      <p>Fashion, footwear, watches and accessories — curated for Lagos and delivered nationwide. Browse the catalog, pick your size, and order directly by WhatsApp or call.</p>
+      <div class="hero-cta-row">
+        <a class="btn btn-primary" href="products.html">Shop Now</a>
+        <a class="btn btn-ghost" href="products.html?category=polos">Explore Polos</a>
+      </div>
+      <div class="hero-stats">
+        <div><span class="num" id="hero-count">0</span><span class="lbl">Items in stock</span></div>
+        <div><span class="num" id="hero-cat-count">0</span><span class="lbl">Categories</span></div>
+        <div><span class="num">NG</span><span class="lbl">Nationwide delivery</span></div>
+      </div>
+    </div>
+    <div class="hero-stack">
+      <div class="tile"><img src="assets/images/watch-01.jpg" alt="Featured watch"></div>
+      <div class="tile"><img src="assets/images/sneaker-02.jpg" alt="Featured sneaker"></div>
+      <div class="tile"><img src="assets/images/polo-08.jpg" alt="Featured polo"></div>
+    </div>
+    <div class="hero-3d-mount" id="hero-3d-mount" style="display:none;"></div>
+  </div>
+</section>
+
+<hr class="section-divider">
+
+<section class="photo-marquee">
+  <div class="photo-marquee-track">
+    <img src="assets/images/polo-08.jpg" alt="">
+    <img src="assets/images/watch-01.jpg" alt="">
+    <img src="assets/images/sneaker-02.jpg" alt="">
+    <img src="assets/images/shirt-07.jpg" alt="">
+    <img src="assets/images/pullover-01.jpg" alt="">
+    <img src="assets/images/polo-19.jpg" alt="">
+    <img src="assets/images/watch-04.jpg" alt="">
+    <img src="assets/images/sneaker-05.jpg" alt="">
+    <img src="assets/images/pants-01.jpg" alt="">
+    <img src="assets/images/polo-14.jpg" alt="">
+    <!-- duplicated for a seamless infinite loop -->
+    <img src="assets/images/polo-08.jpg" alt="">
+    <img src="assets/images/watch-01.jpg" alt="">
+    <img src="assets/images/sneaker-02.jpg" alt="">
+    <img src="assets/images/shirt-07.jpg" alt="">
+    <img src="assets/images/pullover-01.jpg" alt="">
+    <img src="assets/images/polo-19.jpg" alt="">
+    <img src="assets/images/watch-04.jpg" alt="">
+    <img src="assets/images/sneaker-05.jpg" alt="">
+    <img src="assets/images/pants-01.jpg" alt="">
+    <img src="assets/images/polo-14.jpg" alt="">
+  </div>
+</section>
+
+<main>
+
+  <section class="wrap" id="recently-viewed-section" style="display:none;">
+    <div class="section-head">
+      <span class="eyebrow">Pick up where you left off</span>
+      <h2>Recently viewed</h2>
+    </div>
+    <div class="grid" id="recently-viewed-grid"></div>
+  </section>
+
+  <section class="wrap">
+    <div class="section-head">
+      <span class="eyebrow">Shop by category</span>
+      <h2>Find exactly what you need</h2>
+    </div>
+    <div class="cat-grid" id="category-grid"></div>
+  </section>
+
+  <section class="wrap">
+    <div class="section-head">
+      <span class="eyebrow">Handpicked</span>
+      <h2>Featured products</h2>
+    </div>
+    <div class="grid" id="featured-grid"></div>
+  </section>
+
+  <section class="wrap">
+    <div class="section-head">
+      <span class="eyebrow">Just in</span>
+      <h2>New arrivals</h2>
+    </div>
+    <div class="grid" id="new-grid"></div>
+  </section>
+
+  <section class="wrap">
+    <div class="section-head">
+      <span class="eyebrow">Limited time</span>
+      <h2>Special offers</h2>
+      <p class="section-sub">Marked down for a limited time — while stock lasts.</p>
+    </div>
+    <div class="grid" id="offers-grid"></div>
+  </section>
+
+  <section class="features-band">
+    <div class="wrap features-wrap">
+      <div class="feature reveal">
+        <div class="feature-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="6" width="14" height="10"/><path d="M15 9h4l3 3v4h-7z"/><circle cx="6" cy="18" r="1.8"/><circle cx="17.5" cy="18" r="1.8"/></svg></div>
+        <h4>Nationwide delivery</h4>
+        <p>We deliver anywhere in Nigeria — order by WhatsApp or call and we'll sort the rest.</p>
+      </div>
+      <div class="feature reveal">
+        <div class="feature-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5h16v11H8l-4 4z"/></svg></div>
+        <h4>Talk to a real person</h4>
+        <p>No bots, no forms into the void — every order is confirmed directly with our team.</p>
+      </div>
+      <div class="feature reveal">
+        <div class="feature-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11a9 9 0 1 1 2.6 6.4"/><path d="M3 5v6h6"/></svg></div>
+        <h4>7-day returns</h4>
+        <p>Unsealed items can be returned within 7 days if something isn't right.</p>
+      </div>
+      <div class="feature reveal">
+        <div class="feature-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l7 3v6c0 4.5-3 8-7 9-4-1-7-4.5-7-9V6z"/><path d="M9 12l2 2 4-4"/></svg></div>
+        <h4>Pay on your terms</h4>
+        <p>No online payment required — confirm details with us first, every time.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="wrap">
+    <div class="section-head">
+      <span class="eyebrow">Our promise</span>
+      <h2>Why shop with DPG</h2>
+    </div>
+    <div class="promise-grid">
+      <blockquote class="promise-card reveal">
+        <p>We check every piece before it ships — sizing, condition, and finish — so what you order is what shows up at your door.</p>
+      </blockquote>
+      <blockquote class="promise-card reveal">
+        <p>Prices stay honest. When something's marked as an offer, it's a genuine price drop, not an inflated "was" price.</p>
+      </blockquote>
+      <blockquote class="promise-card reveal">
+        <p>Questions before you buy? Message us on WhatsApp — a real person replies, not an automated queue.</p>
+      </blockquote>
+    </div>
+  </section>
+
+  <section class="cta-band">
+    <div class="wrap cta-band-inner">
+      <div>
+        <h2>Get first look at new drops</h2>
+        <p>Message us on WhatsApp to be added to our update list — new arrivals and offers, straight to your chat.</p>
+      </div>
+      <a class="btn btn-primary btn-large" id="cta-whatsapp" target="_blank" rel="noopener">Join on WhatsApp</a>
+    </div>
+  </section>
+
+</main>
+
+<div id="site-footer"></div>
+
+<script src="icons.js"></script>
+<script src="common.js"></script>
+<script src="cart.js"></script>
+<script src="animations.js"></script>
+<script src="catalog-ui.js"></script>
+<script src="home.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js" defer></script>
+<script src="hero-3d.js" defer></script>
+</body>
+</html>
